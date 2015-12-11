@@ -1,0 +1,69 @@
+<canvas id="ctx" width="500" height="500" style="border:1px solid #000000;"></canvas>
+
+<script>
+var ctx = document.getElementById("ctx") .getContext("2d");
+ ctx.font = '30px Arial'
+
+ //player
+ var x = 50;
+ var spdx = 20;
+ var y = 40;
+ var spdy = 5;
+ var name = '>'
+ var message = 'bouncing'
+ 
+ //enemy
+ var enemy_x = 150;
+ var enemy_spdx = 10;
+ var enemy_y = 350;
+ var enemy_spdy = 15;
+ var enemy_name = '<'
+ var enemy_message = 'bouncing'
+ 
+ var HEIGHT = 500;
+ var WIDTH = 500;
+  
+  ctx.fillText(name,x,y);
+
+
+
+ setInterval(update,40);
+ 
+  //player
+   function update(){
+   x += spdx;
+   y += spdy;
+   ctx.fillText(name,x,y);
+   
+     if(x < 0 || x > WIDTH){
+     console.log(message);
+     spdx = -spdx;
+     }
+     
+     if(y < 0 || y > HEIGHT){
+     console.log(message);
+     spdy = -spdy;
+      }
+     
+     //enemy
+   enemy_x += enemy_spdx;
+   enemy_y += enemy_spdy;
+   ctx.fillText(enemy_name,enemy_x,enemy_y);
+   
+     if(enemy_x < 0 || enemy_x > WIDTH){
+     console.log(enemy_message);
+     enemy_spdx = -enemy_spdx;
+     }
+     
+   
+      if(enemy_y < 0 || enemy_y > HEIGHT){
+     console.log(enemy_message);
+     enemy_spdy = -enemy_spdy;
+      }
+   
+  
+    
+   }
+ 
+ 
+ </script>
